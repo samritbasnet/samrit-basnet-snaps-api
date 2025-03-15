@@ -6,9 +6,12 @@ const app = express();
 
 const PORT = process.env.PORT || 8081;
 
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(cors());
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+  res.send("Succesfull connection");
+})
 app.use("/tag",tagsRouter);
 app.use("/photo",photosRouter);
 
