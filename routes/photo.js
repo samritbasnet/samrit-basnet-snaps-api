@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  const photos = readData;
+  const photos = readData();
   const photo = photos.find((p) => p.id === id);
   if (photo) {
     res.status(200).json(photo);
@@ -51,7 +51,7 @@ router.post('/:id/comments', (req, res) => {
     return res.status(404).send('Photo not found');
   }
   const newComment = {
-    id: uuid,
+    id: uuidv4(),
     name: author,
     comment: text,
     timestamp: Date.now(),
