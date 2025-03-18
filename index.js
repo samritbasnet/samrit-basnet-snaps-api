@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(express.json());
-
+app.use('/photos', express.static('public/photos'));
 app.get('/', (req, res) => {
   res.send('Succesfull connection');
 });
